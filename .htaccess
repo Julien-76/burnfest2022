@@ -1,0 +1,6 @@
+RewriteEngine On # Activer le module Rewrite
+RewriteRule ^montant$ japandatas.php [NC,L]
+RewriteRule ^login$ login.php [NC,L]
+RewriteRule ^update$ updateThune.php [NC,L]
+RewriteRule ^[^/]+/(\d+)$ produits.php?id=$1
+RewriteRule ^insertParticipant$ insertParticipant.php [NC,L]
