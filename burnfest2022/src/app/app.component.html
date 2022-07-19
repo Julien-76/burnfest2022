@@ -1,0 +1,57 @@
+<div>
+  <h1>Inscription barbecue 35 ans de Julburn</h1>
+  <h3 *ngIf="!inscris">Merci de répondre à ces questions</h3>
+  <h2 *ngIf="!inscris">Quand tu as terminé, clique sur le cul de Jeffrey pour valider ton inscription</h2>
+</div>
+<div *ngIf="!inscris">
+  <div class="champ">
+    <label>Nom</label>
+    <br/>
+    <input type="text" [(ngModel)]="nom">
+  </div>
+  <div class="champ">
+    <label>Prénom</label>
+    <br/>
+    <input type="text" [(ngModel)]="prenom">
+  </div>
+  <div class="champ">
+    <label>Je compte amener de la Suze</label>
+    <br/>
+    <div *ngIf="suze == ''"><button (click)="setSuze('oui')">OUI</button><button (click)="setSuze('non')">NON</button></div>
+    <div *ngIf="suze == 'oui'"><button (click)="setSuze('oui')" style="background-color : yellow">OUI</button><button (click)="setSuze('non')">NON</button></div>
+    <div *ngIf="suze == 'non'"><button (click)="setSuze('oui')">OUI</button><button  (click)="setSuze('non')" style="background-color : yellow">NON</button></div>
+  </div>
+  <div class="champ">
+    <label *ngIf="suze == ''">Je compte amener du Picon</label>
+    <label *ngIf="suze == 'non'">Je compte du coup amener du Picon</label>
+    <label *ngIf="suze == 'oui'">Je suis un fou et je compte aussi amener du Picon</label>
+    <br/>
+    <div *ngIf="picon == ''"><button (click)="setPicon('oui')">OUI</button><button (click)="setPicon('non')">NON</button></div>
+    <div *ngIf="picon == 'oui'"><button (click)="setPicon('oui')" style="background-color : yellow">OUI</button><button (click)="setPicon('non')">NON</button></div>
+    <div *ngIf="picon == 'non'"><button (click)="setPicon('oui')">OUI</button><button  (click)="setPicon('non')" style="background-color : yellow">NON</button><div *ngIf="suze == 'non' && picon == 'non'">Radin...</div></div>
+  </div>
+  <div class="champ">
+    <label>Je compte manger des pains saucisses</label>
+    <br/>
+    <div *ngIf="saucisses == ''"><button (click)="setSaucisses('oui')">OUI</button><button (click)="setSaucisses('non')">NON</button></div>
+    <div *ngIf="saucisses == 'oui'"><button (click)="setSaucisses('oui')" style="background-color : yellow">OUI</button><button (click)="setSaucisses('non')">NON</button></div>
+    <div *ngIf="saucisses == 'non'"><button (click)="setSaucisses('oui')">OUI</button><button  (click)="setSaucisses('non')" style="background-color : yellow">NON</button></div>
+  </div>
+  <div class="champ">
+    <label>Je compte camper</label>
+    <br/>
+    <div *ngIf="camping == ''"><button (click)="setCamping('oui')">OUI</button><button (click)="setCamping('non')">NON</button><button (click)="setCamping('boh')">JE SAIS PAS ENCORE</button></div>
+    <div *ngIf="camping == 'oui'"><button (click)="setCamping('oui')" style="background-color : yellow">OUI</button><button (click)="setCamping('non')">NON</button><button (click)="setCamping('boh')">JE SAIS PAS ENCORE</button></div>
+    <div *ngIf="camping == 'non'"><button (click)="setCamping('oui')">OUI</button><button  (click)="setCamping('non')" style="background-color : yellow">NON</button><button (click)="setCamping('boh')">JE SAIS PAS ENCORE</button></div>
+    <div *ngIf="camping == 'boh'"><button (click)="setCamping('oui')">OUI</button><button  (click)="setCamping('non')">NON</button><button  style="background-color : yellow" (click)="setCamping('boh')">JE SAIS PAS ENCORE</button></div>
+  </div>
+  <div class="champ">
+    <label>Je m'appelle en fait Dimitri Méwissen</label>
+    <br/>
+    <div *ngIf="dimitri == ''"><button (click)="setDimitri('oui')">OUI</button><button (click)="setDimitri('non')">NON</button></div>
+    <div *ngIf="dimitri == 'oui'"><button (click)="setDimitri('oui')" style="background-color : yellow">OUI</button><button (click)="setDimitri('non')">NON</button></div>
+    <div *ngIf="dimitri == 'non'"><button (click)="setDimitri('oui')">OUI</button><button  (click)="setDimitri('non')" style="background-color : yellow">NON</button></div>
+  </div>
+  <div class="jeff" *ngIf="nom != '' && prenom != '' && camping != '' && suze != '' && picon != '' && dimitri != ''"><a (click)="inscription()"><img src="assets/images/jeffjeff.png"></a></div>
+</div>
+<div *ngIf="inscris"><h2>Merci {{prenom}}, inscription ok ! On se voit le 30 juillet !</h2></div>
